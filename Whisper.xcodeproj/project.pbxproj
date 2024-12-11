@@ -6,8 +6,15 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		769EBFBD044EE1B5781257F1 /* Pods_Whisper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E60A206784C284602D0BC92 /* Pods_Whisper.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		017EBE392D070FA2008C8765 /* Whisper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Whisper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E60A206784C284602D0BC92 /* Pods_Whisper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Whisper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		59546DF68BCA5317EC16912D /* Pods-Whisper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Whisper.debug.xcconfig"; path = "Target Support Files/Pods-Whisper/Pods-Whisper.debug.xcconfig"; sourceTree = "<group>"; };
+		ACA3F1631D1C4DB22D3F8612 /* Pods-Whisper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Whisper.release.xcconfig"; path = "Target Support Files/Pods-Whisper/Pods-Whisper.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -36,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				769EBFBD044EE1B5781257F1 /* Pods_Whisper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,6 +55,8 @@
 			children = (
 				017EBE3B2D070FA2008C8765 /* Whisper */,
 				017EBE3A2D070FA2008C8765 /* Products */,
+				07522A2B7316AF5034649D4C /* Pods */,
+				36CB5A6914F22428ECF2ED49 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +68,23 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		07522A2B7316AF5034649D4C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				59546DF68BCA5317EC16912D /* Pods-Whisper.debug.xcconfig */,
+				ACA3F1631D1C4DB22D3F8612 /* Pods-Whisper.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		36CB5A6914F22428ECF2ED49 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3E60A206784C284602D0BC92 /* Pods_Whisper.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -65,9 +92,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 017EBE4C2D070FA5008C8765 /* Build configuration list for PBXNativeTarget "Whisper" */;
 			buildPhases = (
+				D50E3860F99F3BECC6ED9F13 /* [CP] Check Pods Manifest.lock */,
 				017EBE352D070FA2008C8765 /* Sources */,
 				017EBE362D070FA2008C8765 /* Frameworks */,
 				017EBE372D070FA2008C8765 /* Resources */,
+				26DE41E22078ECE4F1985821 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -77,8 +106,6 @@
 				017EBE3B2D070FA2008C8765 /* Whisper */,
 			);
 			name = Whisper;
-			packageProductDependencies = (
-			);
 			productName = Whisper;
 			productReference = 017EBE392D070FA2008C8765 /* Whisper.app */;
 			productType = "com.apple.product-type.application";
@@ -127,6 +154,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		26DE41E22078ECE4F1985821 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Whisper/Pods-Whisper-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Whisper/Pods-Whisper-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Whisper/Pods-Whisper-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D50E3860F99F3BECC6ED9F13 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Whisper-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		017EBE352D070FA2008C8765 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -140,12 +209,14 @@
 /* Begin XCBuildConfiguration section */
 		017EBE4D2D070FA5008C8765 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 59546DF68BCA5317EC16912D /* Pods-Whisper.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W9K9K372K9;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Whisper/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -172,12 +243,14 @@
 		};
 		017EBE4E2D070FA5008C8765 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ACA3F1631D1C4DB22D3F8612 /* Pods-Whisper.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W9K9K372K9;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Whisper/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

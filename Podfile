@@ -2,9 +2,10 @@
 # platform :ios, '9.0'
 
 target 'Whisper' do
-  # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for Whisper
-
+  pod 'FirebaseCore'  
+  pod 'FirebaseAuth'  
+  pod 'FirebaseDatabase'  
+  
 end
