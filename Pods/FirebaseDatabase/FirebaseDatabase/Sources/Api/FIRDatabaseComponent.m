@@ -20,10 +20,9 @@
 #import "FirebaseDatabase/Sources/Core/FRepoManager.h"
 #import "FirebaseDatabase/Sources/FIRDatabaseConfig_Private.h"
 
-#import "FirebaseAuth/Interop/Public/FirebaseAuthInterop/FIRAuthInterop.h"
-#import "FirebaseCore/Extension/FirebaseCoreInternal.h"
-
-#import <FirebaseAppCheckInterop/FirebaseAppCheckInterop.h>
+#import "FirebaseAppCheck/Sources/Interop/FIRAppCheckInterop.h"
+#import "FirebaseCore/Sources/Private/FirebaseCoreInternal.h"
+#import "Interop/Auth/Public/FIRAuthInterop.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -33,7 +32,7 @@ typedef NSMutableDictionary<NSString *, FIRDatabase *> FIRDatabaseDictionary;
 
 @interface FIRDatabaseComponent () <FIRComponentLifecycleMaintainer, FIRLibrary>
 @property(nonatomic) FIRDatabaseDictionary *instances;
-/// Internal initializer.
+/// Internal intializer.
 - (instancetype)initWithApp:(FIRApp *)app;
 @end
 
@@ -60,6 +59,9 @@ typedef NSMutableDictionary<NSString *, FIRDatabase *> FIRDatabaseDictionary;
 #pragma mark - FIRComponentRegistrant
 
 + (NSArray<FIRComponent *> *)componentsToRegister {
+    FIRDependency *authDep =
+        [FIRDependency dependencyWithProtocol:@protocol(FIRAuthInterop)
+                                   isRequired:NO];
     FIRComponentCreationBlock creationBlock =
         ^id _Nullable(FIRComponentContainer *container, BOOL *isCacheable) {
         *isCacheable = YES;
@@ -68,6 +70,7 @@ typedef NSMutableDictionary<NSString *, FIRDatabase *> FIRDatabaseDictionary;
     FIRComponent *databaseProvider =
         [FIRComponent componentWithProtocol:@protocol(FIRDatabaseProvider)
                         instantiationTiming:FIRInstantiationTimingLazy
+                               dependencies:@[ authDep ]
                               creationBlock:creationBlock];
     return @[ databaseProvider ];
 }

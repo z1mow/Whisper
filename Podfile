@@ -4,8 +4,14 @@
 target 'Whisper' do
   use_frameworks!
 
-  pod 'FirebaseCore'  
-  pod 'FirebaseAuth'  
-  pod 'FirebaseDatabase'  
+#Firebase
+  pod 'FirebaseCore','8.9.0'
+  pod 'FirebaseAuth','8.9.0'
+  pod 'FirebaseDatabase','8.9.0'
+#Facebook
+  pod 'FBSDKCoreKit'
+  pod 'FBSDKLoginKit'
+#GoogleSignIn
+  pod 'GoogleSignIn','5.0.2'
   
 end
